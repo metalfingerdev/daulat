@@ -37,6 +37,8 @@ source .venv/bin/activate
 python -m pip install -r requirements.txt
 ```
 
+On NixOS, pip wheels such as numpy and xgboost can't find `libstdc++.so.6` on their own. Run `nix-shell` from the repo root first. It puts the needed libraries on the path and creates/activates `.venv`. Then run `pip install` as above.
+
 On Windows PowerShell, activate the environment with:
 
 ```powershell

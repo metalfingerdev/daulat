@@ -8,7 +8,12 @@ import sys
 from pathlib import Path
 
 import joblib
-import matplotlib.pyplot as plt
+import matplotlib
+
+# Non-GUI backend: Streamlit runs this script off the main thread, and GUI
+# backends (TkAgg, the Windows default) warn and hang there.
+matplotlib.use("Agg")
+import matplotlib.pyplot as plt  # noqa: E402
 import pandas as pd
 import streamlit as st
 from lime.lime_tabular import LimeTabularExplainer
